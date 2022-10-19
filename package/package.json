@@ -1,8 +1,8 @@
 {
-  "name": "web3-engine-test-internal",
+  "name": "krypc-web3-sdk",
   "version": "1.0.0",
   "description": "This SDK provides easy tools & power methods to make building in web3 much easier. ",
-  "main": "index.js",
+  "main": "core/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
