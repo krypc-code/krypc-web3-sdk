@@ -47,14 +47,67 @@ async function RunWalletMethods() {
     const switchNetwork = await Web3Engine.Wallet.switchNetwork(testProviderforCryptoSend,  80001)
     console.log("✅ Switched network via power method")
 
+    
+    // Transfer ERC-20
     const transferERC20 = await Web3Engine.Wallet.transferERC20("0x90DD14cD9ce555b3059c388c7791e973BE16fbf5", testSignerforCryptoSend, "0x0A0B4062251D0b4827EA70aF320487ce4962F74B", "2000000000000000000") // 2 KRYPC (specified in Wei)
     console.log("✅ Transaction hash of ERC-20 transfer via power method: ", transferERC20)
+
+    // Get connected chain name
+    const chainName = await Web3Engine.Wallet.getCurrentChainName(testProvider)
+    console.log("✅ Currently connected chain name : ", chainName)
+
+    // Get connected chain ID
+    const chainId = await Web3Engine.Wallet.getCurrentChainId(testProvider)
+    console.log("✅ Currently connected chain name : ", chainId)
+
+
 }
 
 async function RunStorageMethods() {
 
+    // Upload file on IPFS
+    const sampleFile = {
+        "name": "Bharath",
+        "why": "testing-ipfs"
+    }
+    const cid = await Web3Engine.Storage.uploadtoIPFS(JSON.stringify(sampleFile))
+    console.log("✅ CID of added file in IPFS via power method: ", cid)
+
+    // Fetch file from IPFS
+    const file = await Web3Engine.Storage.getFileFromIPFS("QmUkXx2Fg9SBNp8WS5fD3YBULZP9gSWsdgUefX5BxhPi4H")
+    console.log("✅ File fetched from IPFS via power method: ", file)
+
 }
 
 
-RunWalletMethods()
-RunStorageMethods()
+async function RunUtilsMethods() {
+
+    // Resolve address to ENS Name
+    const myDomain = await Web3Engine.Utils.resolveAddresstoENS("0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045")
+    console.log("✅ Your ENS domain fetched from a power method is ",myDomain)
+
+    // Resolve ENS Domain to Address
+    const myAddress = await Web3Engine.Utils.resolveENStoAddress("7sigma.eth")
+    console.log("✅ Your address resolved from ENS using a power method is ",myAddress)
+}
+
+async function TestSDK() {
+    
+    console.log("************ TESTING WALLET METHODS **********************")
+    console.log()
+    await RunWalletMethods()
+    console.log()
+
+    console.log("************ TESTING STORAGE METHODS **********************")
+    console.log()
+    await RunStorageMethods()
+    console.log()
+
+    console.log("************ TESTING UTILS METHODS **********************")
+    console.log()
+    await RunUtilsMethods()
+    console.log()
+}
+
+
+TestSDK()

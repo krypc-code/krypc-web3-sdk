@@ -1,5 +1,6 @@
 const wallet_class = require("./wallet")
 const storage_class = require("./storage")
+const utils_class = require("./utils")
 const MainInitializer = require("./main")
 
 
@@ -9,6 +10,7 @@ class Web3Engine extends MainInitializer {
         super(API_KEY)
         this.Wallet = new wallet_class(API_KEY)
         this.Storage = new storage_class(API_KEY)
+        this.Utils = new utils_class(API_KEY)
     }
 
 }

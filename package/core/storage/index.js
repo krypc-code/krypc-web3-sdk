@@ -10,12 +10,15 @@ class Storage extends MainInitializer {
         this.ipfsGateway = this.IPFS_GATEWAY_URL + "/ipfs/"
     }
 
-    uploadtoIPFS() {
-        console.log("File uploaded to IPFS")
+    async uploadtoIPFS(file) {
+        const added = await this.ipfsClient.add(file)
+        return added.path
     }
 
-    getfromIPFS(){
-        console.log("File retrieved from IPFS")
+    async getFileFromIPFS(hash) {
+        const file = await fetch(`${this.ipfsGateway}${hash}`)
+        const fileContent = await file.json()
+        return fileContent
     }
 
 }

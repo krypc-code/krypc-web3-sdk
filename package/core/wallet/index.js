@@ -126,6 +126,16 @@ class Wallet extends MainInitializer {
         return tx.hash
     }
 
+    async getCurrentChainId(provider){
+        const network = await provider.getNetwork()
+        return network.chainId
+    }
+
+    async getCurrentChainName(provider){
+        const network = await provider.getNetwork()
+        return network.name
+    }
+
 }
 
 module.exports = Wallet
