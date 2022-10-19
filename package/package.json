@@ -1,0 +1,30 @@
+{
+  "name": "web3-engine-test-internal",
+  "version": "1.0.0",
+  "description": "This SDK provides easy tools & power methods to make building in web3 much easier. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krypc-code/web3-engine-test-internal.git"
+  },
+  "keywords": [
+    "web3"
+  ],
+  "author": "krypc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krypc-code/web3-engine-test-internal/issues"
+  },
+  "homepage": "https://github.com/krypc-code/web3-engine-test-internal#readme",
+  "dependencies": {
+    "ethers": "^5.7.1",
+    "ipfs-http-client": "^50.1.2",
+    "web3modal": "1.9.5",
+    "@coinbase/wallet-sdk": "3.5.0",
+    "@walletconnect/web3-provider": "^1.8.0",
+    "winston": "^3.8.2"
+  }
+}
