@@ -2,8 +2,10 @@
 
 const wrapperPackages = require("./wrappers")
 const abis = require("./abis")
+const bytecodes = require("./bytecodes")
 
 module.exports = {
     wrapperPackages,
-    abis
+    abis,
+    bytecodes
 }
