@@ -1,5 +1,6 @@
 require('dotenv').config()
-
+const fs = require('fs');
+const {convertToArt} = require("./assets/sampleart")
 // using the SDK
 const sdk = require("krypc-web3-sdk")
 const Web3Engine = new sdk.Web3Engine("aje29azxmsi3sw0")
@@ -91,6 +92,35 @@ async function RunUtilsMethods() {
     console.log("✅ Your address resolved from ENS using a power method is ",myAddress)
 }
 
+
+async function RunNftMethods() {
+    
+    // create a nft collection
+    const nftCollection_deployedAddress = await Web3Engine.Nft.createNftCollection(testSignerforCryptoSend, "KrypC Collection", "KRYPNFT")
+    console.log("✅ Your NFT Collection (ERC-721 contract) has been deployed at ",nftCollection_deployedAddress)
+
+    // minting 10 nft editions
+    for(var i = 1; i<=5; i++) {
+        var edition_image = await convertToArt(i)
+        const mintTxHash = await Web3Engine.Nft.mintNfttoCollection(testSignerforCryptoSend, nftCollection_deployedAddress ,"KrypC Editions", "This is a limited edition KrypC NFT", edition_image)
+        console.log( `✅ Just minted KrypC NFT edition ${i} with txhash ${mintTxHash}`)
+    }
+    
+    // minting a nft to a collection
+    // var image_data;
+    // try {
+    //     image_data = fs.readFileSync('./assets/krypc.jpeg');
+    // } 
+    // catch (err) {
+    //     console.error(err);
+    // }
+
+    // const mintTxHash = await Web3Engine.Nft.mintNfttoCollection(testSignerforCryptoSend, "0xf86575D567c87C98c493B7c67222934F16d14cAF" ,"KrypC Logo NFT", "This is a NFT of the KrypC logo", image_data)
+    // console.log("✅ Your NFT has been minted successfully - txHash:",mintTxHash)
+
+
+}
+
 async function TestSDK() {
     
     console.log("************ TESTING WALLET METHODS **********************")
@@ -106,6 +136,11 @@ async function TestSDK() {
     console.log("************ TESTING UTILS METHODS **********************")
     console.log()
     await RunUtilsMethods()
+    console.log()
+
+    console.log("************ TESTING NFT METHODS **********************")
+    console.log()
+    await RunNftMethods()
     console.log()
 }
 

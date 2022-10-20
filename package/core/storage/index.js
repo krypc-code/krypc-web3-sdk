@@ -21,6 +21,10 @@ class Storage extends MainInitializer {
         return fileContent
     }
 
+    async getGatewayLink(hash) {
+        return `${this.ipfsGateway}${hash}`
+    }
+
 }
 
 module.exports = Storage

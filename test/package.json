@@ -3,6 +3,9 @@
     "test": "node test.js"
   },
   "dependencies": {
-    "dotenv": "^16.0.3"
+    "canvas": "^2.10.1",
+    "dotenv": "^16.0.3",
+    "fs": "^0.0.1-security",
+    "string-pixelater": "^1.0.1"
   }
 }
