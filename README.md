@@ -13,8 +13,8 @@ The Web3 Engine's Utils methods can be accessed by Web3Engine.Utils.<METHOD_NAME
 
 
 ## NFT Methods
-The Web3 Engine's Utils methods can be accessed by Web3Engine.nft.<METHOD_NAME>
+The Web3 Engine's Utils methods can be accessed by Web3Engine.Nft.<METHOD_NAME>
 
 
 ## Marketplace Methods
-The Web3 Engine's Utils methods can be accessed by Web3Engine.marketplace.<METHOD_NAME>
+The Web3 Engine's Utils methods can be accessed by Web3Engine.Marketplace.<METHOD_NAME>
