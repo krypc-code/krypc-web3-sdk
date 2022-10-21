@@ -1,8 +1,13 @@
+<p align="center">
+    <br />
+    <a href="https://krypc.com">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Krypc_Logo.png/2560px-Krypc_Logo.png" width="300" alt=""/></a>
+    <br />
+</p>
 
-![Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Krypc_Logo.png/2560px-Krypc_Logo.png)
+<h1 align="center"><a href='http://krypc.com/'>KrypC</a> Web3 JavaScript SDK</h1>
 
-
-# KrypC Web3 SDK
+<p align="center"><strong>Your Gateway to Unlock Web3</strong></p>
 
 ## Introduction
 This package aims to simplify a developer's experience in building web3 products by providing them with a simple and easy to use suite of tools and methods to accelerate development. 
