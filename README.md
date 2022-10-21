@@ -115,3 +115,30 @@ All of the methods available will be described in the below sections.
 | :-------- | :------- | :------- | :------------------------- | 
 | `createNftCollection` | signer, collectionName, symbol |  contract address | `Web3Engine.Nft.createNftCollection` |
 | `mintNfttoCollection` | signer, contractAddress, nftName, nftDescription, nftContent | Tx Hash | `Web3Engine.Nft.mintNfttoCollection` |
+
+
+
+
+
+
+
+
+## Support
+
+For support, email or join our Discord channel.
+
+
+## Contributing
+
+Contributions are always welcome!
+
+See `contributing.md` for ways to get started.
+
+Please adhere to this project's `code of conduct`.
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
