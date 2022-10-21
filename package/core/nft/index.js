@@ -37,6 +37,14 @@ class Nft extends MainInitializer {
         return tx.hash
     }
 
+    async transferNft(signer, contractAddress, tokenId, receiverAddress) {
+        const contract = new this.ethers.Contract(contractAddress, abis.nftMinterAbi, signer)
+        const NftOwnerAddress =  await signer.getAddress()
+        const tx = await contract.transferFrom(NftOwnerAddress, receiverAddress, tokenId)
+        await tx.wait()
+        return tx.hash
+    }
+
 
 
 }

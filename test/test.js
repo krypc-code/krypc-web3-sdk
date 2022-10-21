@@ -105,6 +105,11 @@ async function RunNftMethods() {
         const mintTxHash = await Web3Engine.Nft.mintNfttoCollection(testSignerforCryptoSend, nftCollection_deployedAddress ,"KrypC Editions", "This is a limited edition KrypC NFT", edition_image)
         console.log( `✅ Just minted KrypC NFT edition ${i} with txhash ${mintTxHash}`)
     }
+
+    // transferring an NFT to 7sigma
+    const resolvedAddress = await Web3Engine.Utils.resolveENStoAddress("7sigma.eth")
+    const transferTxHash = await Web3Engine.Nft.transferNft(testSignerforCryptoSend, nftCollection_deployedAddress, 1, resolvedAddress)
+    console.log( `✅ Just transferred your NFT with token ID 1 to ${resolvedAddress} with txhash ${transferTxHash}`)
     
     // minting a nft to a collection
     // var image_data;
@@ -125,7 +130,7 @@ async function TestSDK() {
     
     console.log("************ TESTING WALLET METHODS **********************")
     console.log()
-    await RunWalletMethods()
+    // await RunWalletMethods()
     console.log()
 
     console.log("************ TESTING STORAGE METHODS **********************")
