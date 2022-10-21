@@ -28,7 +28,7 @@ This package aims to simplify a developer's experience in building web3 products
 
 ## Supported Chains
 Currently, the SDK supports the following chains. We are working to add more chains. 
-| Supported Chain | Chain ID       |
+| Chain Name | Chain ID       |
 | :-------- | :-------   |
 | `Polygon Mainnet` | `137`   |
 | `Polygon Mumbai Testnet` | `80001`   |
