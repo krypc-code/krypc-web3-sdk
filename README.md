@@ -8,6 +8,8 @@
 <h1 align="center"><a href='http://krypc.com/'>KrypC</a> Web3 JavaScript SDK</h1>
 
 <p align="center"><strong>Your Gateway to Unlock Web3</strong></p>
+
+
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Features](#features)
@@ -144,3 +146,5 @@ Please adhere to this project's `code of conduct`.
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+
