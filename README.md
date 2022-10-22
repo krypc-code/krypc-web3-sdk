@@ -8,8 +8,7 @@
 <h1 align="center"><a href='http://krypc.com/'>KrypC</a> Web3 JavaScript SDK</h1>
 
 <p align="center"><strong>Your Gateway to Unlock Web3</strong></p>
-
-
+-
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Features](#features)
@@ -83,44 +82,45 @@ All of the methods available will be described in the below sections.
 
 ### Wallet Suite 
 
-| Method  | Input Parameters | Returns     | Usage                |
+| Method Usage | Input Parameters | Returns     | Description                |
 | :-------- | :------- | :------- | :------------------------- | 
-| `getBalance` | Address, ChainID |Balance in Native Token | `Web3Engine.Wallet.getBalance` |
-| `getERC20Balance` | User Address, Contract Address, Chain ID  | Balance of ERC-20 tokens | `Web3Engine.Wallet.getERC20Balance` |
-| `getCurrentChainId` |  Ethers provider | ChainID | `Web3Engine.Wallet.getCurrentChainId` |
-| `getCurrentChainName` |  Ethers provider | Chain Name | `Web3Engine.Wallet.getCurrentChainName` |
-| `transferCrypto` | receiver_address, signer, transfer_amount (in wei)| Tx Hash | `Web3Engine.Wallet.transferCrypto` |
-| `signMessage` | message, signer | ECDSA signature | `Web3Engine.Wallet.signMessage` |
-| `verifySignatureonChain` | message, ECDSA signature, signer Address | boolean | `Web3Engine.Wallet.verifySignature` |
-| `verifySignatureOffChain` | message, ECDSA signature, signer Address | boolean | `Web3Engine.Wallet.verifySignature` |
-| `switchNetwork` | provider, chainID |  | `Web3Engine.Wallet.switchNetwork` |
-| `transferERC20` | receiver_address, signer, Contract Address, transfer_amount (in wei) | Tx Hash | `Web3Engine.Wallet.transferERC20` |
+| `Web3Engine.Wallet.getBalance` | Address, ChainID | Native token balance in Wei | Get native token balance across supported chains |
+| `Web3Engine.Wallet.transfer` | receiver_address, signer, transfer_amount (in wei)| Tx Hash | Transfer native token to any address across our supported chains |
+| `Web3Engine.Wallet.getERC20Balance` | User Address, Contract Address, Chain ID  | Balance of ERC-20 tokens | Get any ERC-20 token balance across our supported chains |
+| `Web3Engine.Wallet.transferERC20` | receiver_address, signer, Contract Address, transfer_amount (in wei) | Tx Hash | Transfer ERC-20 tokens across our supported chains |
+| `Web3Engine.Wallet.signMessage` | message, signer | ECDSA signature | Generate ECDSA signature of a message from wallet |
+| `Web3Engine.Wallet.verifySignatureonChain` | message, ECDSA signature, signer Address | boolean | Verify signature on-chain through a deployed smart contract (gasless) |
+| `Web3Engine.Wallet.verifySignatureOffChain` | message, ECDSA signature, signer Address | boolean | Verify signature off-chain  |
+| `Web3Engine.Wallet.getCurrentChainId` |  Ethers provider | ChainID | Get chain ID of currently connected network |
+| `Web3Engine.Wallet.getCurrentChainName` |  Ethers provider | Chain Name | Get chain name of currently connected network |
+| `Web3Engine.Wallet.switchNetwork` | provider, chainID | status | Switch network  |
+
 
 ### Storage Suite
 
 
-| Method  | Input Parameters | Returns     | Usage                |
+| Method Usage  | Input Parameters | Returns     | Description                |
 | :-------- | :------- | :------- | :------------------------- | 
-| `uploadtoIPFS` | File| CID Hash | `Web3Engine.Storage.uploadtoIPFS` |
-| `getFileFromIPFS` | CID Hash| file content | `Web3Engine.Storage.getFileFromIPFS` |
-| `getGatewayLink` | CID Hash | Gateway URL | `Web3Engine.Storage.getGatewayLink` |
+| `Web3Engine.Storage.uploadtoIPFS` | File| CID Hash | Upload any file to IPFS and get the CID associated with it.  |
+| `Web3Engine.Storage.getFileFromIPFS` | CID Hash| file content | Retrieve a file from IPFS using the CID |
+| `Web3Engine.Storage.getGatewayLink` | CID Hash | Gateway URL | Get the IPFS URL of the file using CID |
 
 
 ### Utils Suite
 
 
-| Method  | Input Parameters | Returns     | Usage                |
+| Method Usage  | Input Parameters | Returns     | Description                |
 | :-------- | :------- | :------- | :------------------------- | 
-| `resolveAddresstoENS` | Address |  ENS Name | `Web3Engine.Utils.resolveAddresstoENS` |
-| `resolveENStoAddress` | ENS Name | Address | `Web3Engine.Utils.resolveENStoAddress` |
+| `Web3Engine.Utils.resolveAddresstoENS` | Address |  ENS Name | Returns ENS Domain associated with address |
+| `Web3Engine.Utils.resolveENStoAddress` | ENS Name | Address | Returns address associated with an ENS Domain |
 
 ### NFT Suite
 
 
-| Method  | Input Parameters | Returns     | Usage                |
+| Method Usage  | Input Parameters | Returns     | Description                |
 | :-------- | :------- | :------- | :------------------------- | 
-| `createNftCollection` | signer, collectionName, symbol |  contract address | `Web3Engine.Nft.createNftCollection` |
-| `mintNfttoCollection` | signer, contractAddress, nftName, nftDescription, nftContent | Tx Hash | `Web3Engine.Nft.mintNfttoCollection` |
+| `Web3Engine.Nft.createNftCollection` | signer, collectionName, symbol |  contract address | Create an NFT collection across our supported chains |
+| `Web3Engine.Nft.mintNfttoCollection` | signer, contractAddress, nftName, nftDescription, nftContent | Tx Hash | Mint a NFT to your collection across our supported chains |
 
 
 

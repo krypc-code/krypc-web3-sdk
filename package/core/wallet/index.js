@@ -44,7 +44,7 @@ class Wallet extends MainInitializer {
         return balanceinEth
     }
 
-    async transferCrypto(receiver_address, signer, transfer_amount) {
+    async transfer(receiver_address, signer, transfer_amount) {
         // check if address is valid
         var isValidAddress =  this.ethers.utils.isAddress(receiver_address)
         if (!isValidAddress) {
