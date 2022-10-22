@@ -8,6 +8,16 @@
 <h1 align="center"><a href='http://krypc.com/'>KrypC</a> Web3 JavaScript SDK</h1>
 
 <p align="center"><strong>Your Gateway to Unlock Web3</strong></p>
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Supported Chains](#supported-chains)
+4. [Prerequisites](#prerequisites)
+5. [Usage](#usage)
+6. [Suites](#suites)
+7. [Support](#support)
+8. [Contributing](#contributing)
+9. [License](#license)
 
 ## Introduction
 This package aims to simplify a developer's experience in building web3 products by providing them with a simple and easy to use suite of tools and methods to accelerate development. 
@@ -20,17 +30,6 @@ This package aims to simplify a developer's experience in building web3 products
 - Different suites for development
 
 
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Supported Chains](#supported-chains)
-3. [Usage](#usage)
-4. [Features](#features)
-5. [Power Methods](#power-methods)
-6. [Testing SDK Methods](#testing-sdk-methods)
-7. [Support](#support)
-8. [Contributing](#contributing)
-9. [License](#license)
-
 ## Supported Chains
 Currently, the SDK supports the following chains. We are working to add more chains. 
 | Chain Name | Chain ID       |
@@ -40,7 +39,7 @@ Currently, the SDK supports the following chains. We are working to add more cha
 | `Ethereum Mainnet` | `1`   |
 | `Ethereum Goerli Testnet` | `5`   |
 
-## Pre-Requisites
+## Prerequisites
 The usage of the SDK requires an API key which can be obtained through the KrypC portal after reegistration. 
 ## Usage
 Install the package from npm registry using the following command:
@@ -145,5 +144,3 @@ Please adhere to this project's `code of conduct`.
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
-
