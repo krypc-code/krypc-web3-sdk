@@ -112,6 +112,7 @@ All of the methods available will be described in the below sections.
 
 | Method Usage  | Input Parameters | Returns     | Description                |
 | :-------- | :------- | :------- | :------------------------- | 
+| `Web3Engine.Utils.connectWallet` | Wallet Array |  provider, signer | Provide multiple wallet connection options by passing input as array of required wallets. Metamask is supported by default.  |
 | `Web3Engine.Utils.resolveAddresstoENS` | Address |  ENS Name | Returns ENS Domain associated with address |
 | `Web3Engine.Utils.resolveENStoAddress` | ENS Name | Address | Returns address associated with an ENS Domain |
 
