@@ -3,9 +3,11 @@
 const wrapperPackages = require("./wrappers")
 const abis = require("./abis")
 const bytecodes = require("./bytecodes")
+const walletConfigs = require("./wallet_options")
 
 module.exports = {
     wrapperPackages,
     abis,
-    bytecodes
+    bytecodes,
+    walletConfigs
 }

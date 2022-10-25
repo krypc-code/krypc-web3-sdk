@@ -1,4 +1,6 @@
 const MainInitializer = require("../main")
+const base = require("../../base")
+const getWalletConfigs = base.walletConfigs
 
 class Utils extends MainInitializer {
 
@@ -32,6 +34,23 @@ class Utils extends MainInitializer {
             return 
         }
         return resolvedAddress
+    }
+
+    async connectWallet(options) {
+        const providerOptions = await getWalletConfigs(options)
+        console.log(providerOptions)
+        const Web3Modal = this.web3Modal
+        const web3Modal = new Web3Modal({
+            theme: "dark",
+            network: "mainnet", // optional
+            // cacheProvider: true, // optional
+            providerOptions: providerOptions // required
+        });  
+        const connection = await web3Modal.connect()
+        const provider = new this.ethers.providers.Web3Provider(connection, "any")
+        const signer = provider.getSigner()
+        const address = await signer.getAddress()
+        return [provider, signer, address]
     }
 
 }

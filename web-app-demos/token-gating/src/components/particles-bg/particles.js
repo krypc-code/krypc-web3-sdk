@@ -127,17 +127,17 @@ export const particles_config = {
         "area": {
           "gradient": {
             "start": {
-              "value": "#ffffff"
+              "value": "3b5e98"
             },
             "stop": {
-              "value": "#000000"
+              "value": "#17163e"
             }
           },
           "radius": 1000
         },
         "shadow": {
           "color": {
-            "value": "#000000"
+            "value": "#17163e"
           },
           "length": 2000
         }
@@ -364,7 +364,7 @@ export const particles_config = {
       "velocityRate": 1
     },
     "life": {
-      "count": 1,
+      "count": 0,
       "delay": {
         "random": {
           "enable": false,
@@ -378,8 +378,8 @@ export const particles_config = {
           "enable": false,
           "minimumValue": 0.0001
         },
-        "value": 5,
-        "sync": true
+        "value": 0,
+        "sync": false
       }
     },
     "rotate": {
@@ -387,17 +387,14 @@ export const particles_config = {
         "enable": false,
         "minimumValue": 0
       },
-      "value": {
-        "min": 0,
-        "max": 360
-      },
+      "value": 0,
       "animation": {
         "enable": true,
-        "speed": 60,
+        "speed": 5,
         "decay": 0,
         "sync": false
       },
-      "direction": "random",
+      "direction": "clockwise",
       "path": false
     },
     "destroy": {
@@ -428,37 +425,31 @@ export const particles_config = {
     },
     "roll": {
       "darken": {
-        "enable": true,
-        "value": 25
+        "enable": false,
+        "value": 0
       },
-      "enable": true,
+      "enable": false,
       "enlighten": {
         "enable": false,
         "value": 0
       },
       "mode": "vertical",
-      "speed": {
-        "min": 15,
-        "max": 25
-      }
+      "speed": 25
     },
     "tilt": {
       "random": {
         "enable": false,
         "minimumValue": 0
       },
-      "value": {
-        "min": 0,
-        "max": 360
-      },
+      "value": 0,
       "animation": {
-        "enable": true,
-        "speed": 60,
+        "enable": false,
+        "speed": 0,
         "decay": 0,
         "sync": false
       },
-      "direction": "random",
-      "enable": true
+      "direction": "clockwise",
+      "enable": false
     },
     "twinkle": {
       "lines": {
@@ -473,13 +464,10 @@ export const particles_config = {
       }
     },
     "wobble": {
-      "distance": 30,
-      "enable": true,
+      "distance": 5,
+      "enable": false,
       "speed": {
-        "angle": {
-          "min": -15,
-          "max": 15
-        },
+        "angle": 50,
         "move": 10
       }
     },

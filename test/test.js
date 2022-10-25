@@ -2,7 +2,7 @@ require('dotenv').config()
 const fs = require('fs');
 const {convertToArt} = require("./assets/sampleart")
 // using the SDK
-const sdk = require("krypc-web3-sdk")
+const sdk = require("@krypc/web3-sdk")
 const Web3Engine = new sdk.Web3Engine("aje29azxmsi3sw0")
 
 // getting wrapped package
@@ -40,7 +40,7 @@ async function RunWalletMethods() {
     console.log("✅ Your KRYPC Token balance fetched from a power method is ",erc20balance, " KRYPC")
 
     // Transfer Crypto
-    const txhash = await Web3Engine.Wallet.transferCrypto("0x90DD14cD9ce555b3059c388c7791e973BE16fbf5",testSignerforCryptoSend,"100000000000000") // 0.0001 MATIC (specified in Wei)
+    const txhash = await Web3Engine.Wallet.transfer("0x90DD14cD9ce555b3059c388c7791e973BE16fbf5",testSignerforCryptoSend,"100000000000000") // 0.0001 MATIC (specified in Wei)
     console.log("✅ Transaction hash of crypto transfer via power method: ", txhash)
 
 
@@ -90,6 +90,7 @@ async function RunUtilsMethods() {
     // Resolve ENS Domain to Address
     const myAddress = await Web3Engine.Utils.resolveENStoAddress("7sigma.eth")
     console.log("✅ Your address resolved from ENS using a power method is ",myAddress)
+
 }
 
 
@@ -128,25 +129,25 @@ async function RunNftMethods() {
 
 async function TestSDK() {
     
-    console.log("************ TESTING WALLET METHODS **********************")
-    console.log()
-    // await RunWalletMethods()
-    console.log()
+    // console.log("************ TESTING WALLET METHODS **********************")
+    // console.log()
+    // // await RunWalletMethods()
+    // console.log()
 
-    console.log("************ TESTING STORAGE METHODS **********************")
-    console.log()
-    await RunStorageMethods()
-    console.log()
+    // console.log("************ TESTING STORAGE METHODS **********************")
+    // console.log()
+    // await RunStorageMethods()
+    // console.log()
 
     console.log("************ TESTING UTILS METHODS **********************")
     console.log()
     await RunUtilsMethods()
     console.log()
 
-    console.log("************ TESTING NFT METHODS **********************")
-    console.log()
-    await RunNftMethods()
-    console.log()
+    // console.log("************ TESTING NFT METHODS **********************")
+    // console.log()
+    // await RunNftMethods()
+    // console.log()
 }
 
 

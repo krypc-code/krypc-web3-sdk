@@ -3,6 +3,7 @@ import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { particles_config } from "./components/particles-bg/particles";
+import Main from "./components/Main"
 
 function App() {
   const particlesInit = useCallback(async (engine) => {
@@ -25,6 +26,7 @@ function App() {
     loaded={particlesLoaded}
     options={particles_config}
   />
+  <Main />
     </>
   );
 }
