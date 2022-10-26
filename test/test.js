@@ -1,6 +1,7 @@
 require('dotenv').config()
-const fs = require('fs');
 const {convertToArt} = require("./assets/sampleart")
+
+
 // using the SDK
 const sdk = require("@krypc/web3-sdk")
 const Web3Engine = new sdk.Web3Engine("aje29azxmsi3sw0")

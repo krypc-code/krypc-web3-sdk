@@ -1,6 +1,6 @@
 {
   "name": "@krypc/web3-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This SDK provides easy tools & power methods to make building in web3 much easier. ",
   "main": "core/index.js",
   "scripts": {
