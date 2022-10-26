@@ -53,6 +53,10 @@ class Utils extends MainInitializer {
         return [provider, signer, address]
     }
 
+    async validateAddress(address){
+        return this.ethers.utils.isAddress(address)
+    }
+
 }
 
 module.exports = Utils
