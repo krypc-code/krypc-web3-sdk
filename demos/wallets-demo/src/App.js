@@ -27,17 +27,28 @@ function App() {
     setChainName(chainName)
   }
 
+  async function disconnectWallet() {
+    setProvider('')
+    setSigner('')
+    setAddress('')
+    setChainId('')
+    setChainName('')
+    setConnectedStatus(false)
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>Connect Wallet Demo</h1>
         <Button style={{marginTop:"1%"}} onClick = {async ()=>{
-              await connectWallet()
-            }} variant="outline-light">{connectedStatus ? "Connected":"Connect Wallet"}</Button>
+              if(!connectedStatus)
+                await connectWallet()
+              else
+                await disconnectWallet()
+            }} variant="outline-light">{connectedStatus ? "Disconnect ❌":"Connect Wallet"}</Button>
         {address && <h6 style={{marginTop:"5%"}}>Connected Address: {address}</h6>}
         {chainName && <h6 style={{marginTop:"1%"}}>Active Chain Name: {chainName}</h6>}
         {chainId && <h6 style={{marginTop:"1%"}}>Active Chain Id: {chainId}</h6>}
-        
       </header>
     </div>
   );
