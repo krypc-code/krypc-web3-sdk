@@ -57,6 +57,79 @@ class Utils extends MainInitializer {
         return this.ethers.utils.isAddress(address)
     }
 
+    getCurrencySymbol(chainIdVal) {
+        // check if chainId val is a number else throw error
+        if (typeof chainIdVal !== "number") {
+            throw new Error("Invalid chainId value passed")
+        }
+        switch(chainIdVal){
+            case 1:
+                return "ETH";
+            case 80001:
+                return "MATIC";
+            case 137:
+                return "MATIC";
+            case 56:
+                return "BNB";
+            case 97:
+                return "BNB";
+            case 250:
+                return "FTM";
+            case 43114:
+                return "AVAX";
+            case 43113:
+                return "AVAX";
+            case 5:
+                return "ETH";
+            case 42:
+                return "ETH";
+            case 3:
+                return "ETH";
+            case 4:
+                return "ETH";
+            case 100:
+                return "XDAI";
+            default:
+                return "ETH";
+        }
+    }
+
+    async deployContract(signer, abi, bytecode, args) {
+        try {
+            const factory = new this.ethers.ContractFactory(abi, bytecode, signer);
+            const contract = await factory.deploy(...args);
+            await contract.deployTransaction.wait()
+            return contract.address
+        }
+        catch(err) {
+            throw new Error(err)
+        }
+    }
+
+    async callContractMethod(signer, contract_address, contract_abi, method, args) {
+        try {
+            const contract = new this.ethers.Contract(contract_address, contract_abi, signer)
+            const tx = await contract[method](...args)
+            await tx.wait()
+            return tx.hash
+        }
+        catch(err) {
+            throw new Error(err)
+        }
+    }
+
+    async callContractViewMethod(provider, contract_address, contract_abi, method, args) {
+        try {
+            const contract = new this.ethers.Contract(contract_address, contract_abi, provider)
+            const result = await contract[method](...args)
+            return result
+        }
+        catch(err) {
+            throw new Error(err)
+        }
+    }
+
+
 }
 
 module.exports = Utils

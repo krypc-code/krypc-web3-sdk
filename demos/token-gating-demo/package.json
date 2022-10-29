@@ -11,6 +11,7 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.3.0",
     "react-dom": "^18.2.0",
+    "react-parallax-tilt": "^1.7.68",
     "react-router-dom": "^4.2.2",
     "react-scripts": "^4.0.3",
     "react-tsparticles": "^2.3.3",

@@ -1,5 +1,6 @@
 require('dotenv').config()
 const {convertToArt} = require("./assets/sampleart")
+const fs = require('fs');
 
 
 // using the SDK
@@ -128,6 +129,21 @@ async function RunNftMethods() {
 
 }
 
+
+async function RunNftStuffviaUtils() {
+
+    const nftMinterAbi = require("./test-contract-artifacts/abi/erc721")
+    const nftMinterBytecode = require("./test-contract-artifacts/bytecode/erc721")
+    const deployedContractAddress = await Web3Engine.Utils.deployContract(testSignerforCryptoSend, nftMinterAbi, nftMinterBytecode, ["KrypC Collection", "KRYPNFT"])
+    console.log("✅ Your NFT Collection (ERC-721 contract) has been deployed at ",deployedContractAddress)
+    const sampleAddress = await Web3Engine.Utils.resolveENStoAddress("7sigma.eth")
+    console.log("NFT Mint to address ", sampleAddress)
+    const mintTxHash = await Web3Engine.Utils.callContractMethod(testSignerforCryptoSend, deployedContractAddress, nftMinterAbi, "mintNFT", [sampleAddress, "https://web3-proxy.krypcore.com/ipfsGateway/aje29azxmsi3sw0/ipfs/Qmcuu6xxqyg98LWq1C97WqVEprQTbU6YPupAQg2SNigt7j"])
+    console.log("✅ Your NFT has been minted successfully - txHash:",mintTxHash)
+
+}
+
+
 async function TestSDK() {
     
     // console.log("************ TESTING WALLET METHODS **********************")
@@ -140,15 +156,43 @@ async function TestSDK() {
     // await RunStorageMethods()
     // console.log()
 
-    console.log("************ TESTING UTILS METHODS **********************")
-    console.log()
-    await RunUtilsMethods()
-    console.log()
+    // console.log("************ TESTING UTILS METHODS **********************")
+    // console.log()
+    // await RunUtilsMethods()
+    // console.log()
 
     // console.log("************ TESTING NFT METHODS **********************")
     // console.log()
     // await RunNftMethods()
     // console.log()
+
+
+    // console.log("************ TESTING NFT METHODS VIA UTILS **********************")
+    // console.log()
+    // await RunNftStuffviaUtils()
+    // console.log()
+
+
+    // ************* Uploading an image to IPFS and printing the URL ************************
+    // const image = fs.readFileSync("./access_token_nft.png")
+    // const cid = await Web3Engine.Storage.uploadtoIPFS(image)
+    // const url = await Web3Engine.Storage.getGatewayLink(cid)
+    // console.log(url)
+
+    var nft_metadata = {
+        "name": "KrypC Editions Unlock Web3 NFT Access Token",
+        "description": "This is a limited edition KrypC NFT (only 100 quantity) that provides exclusive perks to the holder !",
+        "image": "https://web3-proxy.krypcore.com/ipfsGateway/aje29azxmsi3sw0/ipfs/Qmcuu6xxqyg98LWq1C97WqVEprQTbU6YPupAQg2SNigt7j",
+    }
+
+    const metadata_cid = await Web3Engine.Storage.uploadtoIPFS(JSON.stringify(nft_metadata))
+    const metadata_url = await Web3Engine.Storage.getGatewayLink(metadata_cid)
+    console.log(metadata_url)
+
+
+
+
+
 }
 
 

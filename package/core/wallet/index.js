@@ -24,8 +24,15 @@ class Wallet extends MainInitializer {
 
 
     async signMessage(message, signer){
-        const signature = await signer.signMessage(message)
-        return signature
+        var signature;
+        try {
+            signature = await signer.signMessage(message)
+            return signature
+        } 
+        catch(err) {
+            console.error(err)
+            return 
+        }
     }
 
 
