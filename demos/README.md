@@ -14,3 +14,6 @@
 
 ## Demo 3: Token Gating Demo
 - Token gate access to your website to only allow only holders of a particular NFT to access it !
+- Mint a KrypC Editions Unlock Web3 NFT Access Token to get access
+- Only 100 NFTs in circulation
+- Check out the live deployment @ https://web3engine-nft-gating.netlify.app
