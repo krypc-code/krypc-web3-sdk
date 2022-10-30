@@ -115,6 +115,9 @@ All of the methods available will be described in the below sections.
 | `Web3Engine.Utils.connectWallet` | Wallet Array (possible options: coinbase, walletconnect) |  provider, signer | Provide multiple wallet connection options by passing input as array of required wallets. Metamask is supported by default.  |
 | `Web3Engine.Utils.resolveAddresstoENS` | Address |  ENS Name | Returns ENS Domain associated with address |
 | `Web3Engine.Utils.resolveENStoAddress` | ENS Name | Address | Returns address associated with an ENS Domain |
+| `Web3Engine.Utils.deployContract` | signer, abi, bytecode, constructor args | contract address | Returns address of deployed contract |
+| `Web3Engine.Utils.callContractMethod` | signer, contractAddress, abi, methodName, args | contract address | Allows you to make a transaction with any deployed contract |
+| `Web3Engine.Utils.callContractViewMethod` | provider, contractAddress, abi, methodName, args | contract address | Allows you to call any view functions in the contract (no gas) |
 
 ### NFT Suite
 
