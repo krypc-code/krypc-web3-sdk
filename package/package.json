@@ -20,11 +20,14 @@
   },
   "homepage": "https://github.com/krypc-code/web3-engine-test-internal#readme",
   "dependencies": {
+    "@coinbase/wallet-sdk": "3.5.0",
+    "@toruslabs/torus-embed": "^1.36.6",
+    "@walletconnect/web3-provider": "^1.8.0",
+    "0xsequence": "^0.42.8",
+    "eth-provider": "^0.13.6",
     "ethers": "^5.7.1",
     "ipfs-http-client": "^50.1.2",
     "web3modal": "1.9.5",
-    "@coinbase/wallet-sdk": "3.5.0",
-    "@walletconnect/web3-provider": "^1.8.0",
     "winston": "^3.8.2"
   }
 }

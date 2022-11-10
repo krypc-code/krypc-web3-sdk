@@ -1,5 +1,7 @@
 const WalletConnect = require("@walletconnect/web3-provider");
 const {CoinbaseWalletSDK} = require("@coinbase/wallet-sdk");
+const Torus = require("@toruslabs/torus-embed");
+const ethProvider = require("eth-provider")
 
 
 const returnProviderOptions = async (walletOptions) => {
@@ -31,6 +33,24 @@ const returnProviderOptions = async (walletOptions) => {
                    appName: "Web 3 Modal Demo", // Required
                 }
             }
+        }
+        else if(option == "torus") {
+            providerOptions["torus"] = {
+                package: Torus.default, // required
+                options: {
+                  showTorusButton: true, // optional
+                  rpc: {
+                    80001: '',
+                    5: ''
+                          },
+       
+                },
+              };
+        }
+        else if(option=="frame") {
+            providerOptions["frame"] = {
+                package: ethProvider, // required
+              };
         }
         else{
             throw new Error("Chosen wallet not supported")
