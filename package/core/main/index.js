@@ -10,6 +10,7 @@ class MainInitializer {
         this.POLYGON_MUMBAI_URL = `https://web3-proxy-uat.krypcore.com/api/v0/rpc/80001/${apiKey}` // will be changed with API key appended to it
         this.ETHEREUM_GOERLI_URL = `https://web3-proxy-uat.krypcore.com/api/v0/rpc/5/${apiKey}` // will be changed with API key appended to it
         this.ETHEREUM_MAINNET_URL = "https://rpc.ankr.com/eth" // will be changed with API key appended to it
+        this.HEDERA_TESTNET_URL = "https://testnet.hashio.io/api"
         this.ethers = wrapper_packages.ethers
         this.hethers = wrapper_packages.hethers
         this.web3Modal = wrapper_packages.web3modal
@@ -24,6 +25,9 @@ class MainInitializer {
         }
         else if(chainId == 1){
             return this.ETHEREUM_MAINNET_URL
+        }
+        else if(chainId == 296){
+            return this.HEDERA_TESTNET_URL
         }
         else {
             throw new Error("Chain ID currently not supported !")

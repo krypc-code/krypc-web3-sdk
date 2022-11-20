@@ -101,7 +101,6 @@ class Wallet extends MainInitializer {
         const messageHash = this.ethers.utils.hashMessage(message);
         const messageHashBytes = this.ethers.utils.arrayify(messageHash);
         let recovered = this.ethers.utils.recoverAddress(messageHashBytes, signature);
-        console.log(recovered)
         return recovered == address
     }
 

@@ -9,6 +9,7 @@ const Web3Engine = new sdk.Web3Engine(process.env.KRYPCORE_W3_API_KEY)
 
 // getting wrapped package
 const ethers = Web3Engine.ethers
+const hethers = Web3Engine.hethers
 
 
 // creating some test providers & signers
@@ -144,33 +145,79 @@ async function RunNftStuffviaUtils() {
 
 }
 
+async function TestHederaMethods() {
+
+    const testHederaProvider =  new ethers.providers.JsonRpcProvider(Web3Engine.HEDERA_TESTNET_URL)
+    const testHederaSigner = new ethers.Wallet(process.env.HEDERA_TESTNET_PRIVATE_KEY, testHederaProvider)
+    const myBalance = await Web3Engine.Wallet.getBalance("0x6bfC7F8e230d5725a7E55bD06CD4406c3B0A067F", 296)
+    console.log("✅ Your HBAR balance fetched from a power method is ",myBalance, " HBAR")
+
+
+    const signature = await Web3Engine.Wallet.signMessage("Hello World", testHederaSigner)
+    console.log("✅ Signed message using private key via power method: ", signature)
+
+
+     // Verify Signature On-Chain
+     const isVerified_onChain = await Web3Engine.Wallet.verifySignatureonChain("Hello World", "0x92aee600de0411051d0d6b15ef553d9ef0aee4b23b5c958491be60377f441be2520c2bc7adbe7bd95c7bc85a404a181bd95ad11c7df8354f33c4f76fad038c6e1b", "0x6bfC7F8e230d5725a7E55bD06CD4406c3B0A067F")
+     console.log("✅ Signature verification status via power method: ", isVerified_onChain)
+ 
+ 
+     // Verify Signature Off-Chain
+     const isVerified_offChain = await Web3Engine.Wallet.verifySignatureOffChain("Hello World", "0x92aee600de0411051d0d6b15ef553d9ef0aee4b23b5c958491be60377f441be2520c2bc7adbe7bd95c7bc85a404a181bd95ad11c7df8354f33c4f76fad038c6e1b", "0x6bfC7F8e230d5725a7E55bD06CD4406c3B0A067F")
+     console.log("✅ Off-chain Signature verification status via power method: ", isVerified_offChain)
+
+
+    // Get ERC-20 balance of KRYPC Token
+    const myAddress = await testHederaSigner.getAddress()
+    const erc20balance = await Web3Engine.Wallet.getERC20Balance(myAddress, "0x0000000000000000000000000000000002EA9676", 296)
+    console.log("✅ Your KRYPC Token balance fetched from a power method is ",erc20balance, " KRYPC")
+
+    const txhash = await Web3Engine.Wallet.transfer("0x6465Ace657536236547F629AAA239588e95Ac843",testHederaSigner,"1000000000000000000") // 0.1 HBAR (specified in Wei)
+    console.log("✅ Transaction hash of HBAR transfer (1 HBAR) via power method: ", txhash)
+    const NewmyBalance = await Web3Engine.Wallet.getBalance("0x6bfC7F8e230d5725a7E55bD06CD4406c3B0A067F", 296)
+    console.log("✅ Your new HBAR balance after transfer fetched from a power method is ",NewmyBalance, " HBAR")
+
+    const transferERC20 = await Web3Engine.Wallet.transferERC20("0x6465Ace657536236547F629AAA239588e95Ac843", testHederaSigner, "0x0000000000000000000000000000000002EA9676", "4000000000000000000") // 4 KRYPC (specified in Wei)
+    console.log("✅ Transaction hash of ERC-20 transfer (4 KRYP Tokens) via power method: ", transferERC20)
+    const Newerc20balance = await Web3Engine.Wallet.getERC20Balance(myAddress, "0x0000000000000000000000000000000002EA9676", 296)
+    console.log("✅ Your new KRYPC Token balance after transfer fetched from a power method is ",Newerc20balance, " KRYPC")
+
+
+
+}
+
 
 async function TestSDK() {
     
-    console.log("************ TESTING WALLET METHODS **********************")
-    console.log()
-    await RunWalletMethods()
-    console.log()
+    // console.log("************ TESTING WALLET METHODS **********************")
+    // console.log()
+    // await RunWalletMethods()
+    // console.log()
 
-    console.log("************ TESTING STORAGE METHODS **********************")
-    console.log()
-    await RunStorageMethods()
-    console.log()
+    // console.log("************ TESTING STORAGE METHODS **********************")
+    // console.log()
+    // await RunStorageMethods()
+    // console.log()
 
-    console.log("************ TESTING UTILS METHODS **********************")
-    console.log()
-    await RunUtilsMethods()
-    console.log()
+    // console.log("************ TESTING UTILS METHODS **********************")
+    // console.log()
+    // await RunUtilsMethods()
+    // console.log()
 
-    console.log("************ TESTING NFT METHODS **********************")
-    console.log()
-    await RunNftMethods()
-    console.log()
+    // console.log("************ TESTING NFT METHODS **********************")
+    // console.log()
+    // await RunNftMethods()
+    // console.log()
 
 
-    console.log("************ TESTING NFT METHODS VIA UTILS **********************")
+    // console.log("************ TESTING NFT METHODS VIA UTILS **********************")
+    // console.log()
+    // await RunNftStuffviaUtils()
+    // console.log()
+
+    console.log("************ TESTING HEDERA SPECIFIC METHODS **********************")
     console.log()
-    await RunNftStuffviaUtils()
+    await TestHederaMethods()
     console.log()
 
 
