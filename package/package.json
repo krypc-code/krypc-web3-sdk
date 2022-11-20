@@ -21,6 +21,7 @@
   "homepage": "https://github.com/krypc-code/web3-engine-test-internal#readme",
   "dependencies": {
     "@coinbase/wallet-sdk": "3.5.0",
+    "@hashgraph/hethers": "^1.2.2",
     "@toruslabs/torus-embed": "^1.36.6",
     "@walletconnect/web3-provider": "^1.8.0",
     "0xsequence": "^0.42.8",

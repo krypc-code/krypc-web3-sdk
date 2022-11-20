@@ -22,6 +22,10 @@ class Wallet extends MainInitializer {
         return balanceinEth
     }
 
+    async getHbarBalance(){
+        
+    }
+
 
     async signMessage(message, signer){
         var signature;

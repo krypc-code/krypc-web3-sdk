@@ -5,7 +5,7 @@ const fs = require('fs');
 
 // using the SDK
 const sdk = require("@krypc/web3-sdk")
-const Web3Engine = new sdk.Web3Engine("aje29azxmsi3sw0")
+const Web3Engine = new sdk.Web3Engine(process.env.KRYPCORE_W3_API_KEY)
 
 // getting wrapped package
 const ethers = Web3Engine.ethers
@@ -38,7 +38,8 @@ async function RunWalletMethods() {
 
 
     // Get ERC-20 balance of KRYPC Token
-    const erc20balance = await Web3Engine.Wallet.getERC20Balance("0xE6D5514b8De7ef9E5F5c4cc2E8cA0207129DEB65", "0x0A0B4062251D0b4827EA70aF320487ce4962F74B", 80001)
+    const myAddress = await testSignerforCryptoSend.getAddress()
+    const erc20balance = await Web3Engine.Wallet.getERC20Balance(myAddress, "0x0A0B4062251D0b4827EA70aF320487ce4962F74B", 80001)
     console.log("✅ Your KRYPC Token balance fetched from a power method is ",erc20balance, " KRYPC")
 
     // Transfer Crypto
@@ -52,7 +53,7 @@ async function RunWalletMethods() {
 
     
     // Transfer ERC-20
-    const transferERC20 = await Web3Engine.Wallet.transferERC20("0x90DD14cD9ce555b3059c388c7791e973BE16fbf5", testSignerforCryptoSend, "0x0A0B4062251D0b4827EA70aF320487ce4962F74B", "2000000000000000000") // 2 KRYPC (specified in Wei)
+    const transferERC20 = await Web3Engine.Wallet.transferERC20("0x90DD14cD9ce555b3059c388c7791e973BE16fbf5", testSignerforCryptoSend, "0x0A0B4062251D0b4827EA70aF320487ce4962F74B", "4000000000000000000") // 4 KRYPC (specified in Wei)
     console.log("✅ Transaction hash of ERC-20 transfer via power method: ", transferERC20)
 
     // Get connected chain name
@@ -146,31 +147,31 @@ async function RunNftStuffviaUtils() {
 
 async function TestSDK() {
     
-    // console.log("************ TESTING WALLET METHODS **********************")
-    // console.log()
-    // // await RunWalletMethods()
-    // console.log()
+    console.log("************ TESTING WALLET METHODS **********************")
+    console.log()
+    await RunWalletMethods()
+    console.log()
 
-    // console.log("************ TESTING STORAGE METHODS **********************")
-    // console.log()
-    // await RunStorageMethods()
-    // console.log()
+    console.log("************ TESTING STORAGE METHODS **********************")
+    console.log()
+    await RunStorageMethods()
+    console.log()
 
-    // console.log("************ TESTING UTILS METHODS **********************")
-    // console.log()
-    // await RunUtilsMethods()
-    // console.log()
+    console.log("************ TESTING UTILS METHODS **********************")
+    console.log()
+    await RunUtilsMethods()
+    console.log()
 
-    // console.log("************ TESTING NFT METHODS **********************")
-    // console.log()
-    // await RunNftMethods()
-    // console.log()
+    console.log("************ TESTING NFT METHODS **********************")
+    console.log()
+    await RunNftMethods()
+    console.log()
 
 
-    // console.log("************ TESTING NFT METHODS VIA UTILS **********************")
-    // console.log()
-    // await RunNftStuffviaUtils()
-    // console.log()
+    console.log("************ TESTING NFT METHODS VIA UTILS **********************")
+    console.log()
+    await RunNftStuffviaUtils()
+    console.log()
 
 
     // ************* Uploading an image to IPFS and printing the URL ************************
@@ -179,15 +180,15 @@ async function TestSDK() {
     // const url = await Web3Engine.Storage.getGatewayLink(cid)
     // console.log(url)
 
-    var nft_metadata = {
-        "name": "KrypC Editions Unlock Web3 NFT Access Token",
-        "description": "This is a limited edition KrypC NFT (only 100 quantity) that provides exclusive perks to the holder !",
-        "image": "https://web3-proxy.krypcore.com/ipfsGateway/aje29azxmsi3sw0/ipfs/Qmcuu6xxqyg98LWq1C97WqVEprQTbU6YPupAQg2SNigt7j",
-    }
+    // var nft_metadata = {
+    //     "name": "KrypC Editions Unlock Web3 NFT Access Token",
+    //     "description": "This is a limited edition KrypC NFT (only 100 quantity) that provides exclusive perks to the holder !",
+    //     "image": "https://web3-proxy.krypcore.com/ipfsGateway/aje29azxmsi3sw0/ipfs/Qmcuu6xxqyg98LWq1C97WqVEprQTbU6YPupAQg2SNigt7j",
+    // }
 
-    const metadata_cid = await Web3Engine.Storage.uploadtoIPFS(JSON.stringify(nft_metadata))
-    const metadata_url = await Web3Engine.Storage.getGatewayLink(metadata_cid)
-    console.log(metadata_url)
+    // const metadata_cid = await Web3Engine.Storage.uploadtoIPFS(JSON.stringify(nft_metadata))
+    // const metadata_url = await Web3Engine.Storage.getGatewayLink(metadata_cid)
+    // console.log(metadata_url)
 
 
 
